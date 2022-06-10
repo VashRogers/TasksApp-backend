@@ -11,7 +11,7 @@ module.exports = app => {
         const user = await app.db('users')
             .whereRaw("LOWER(email) = LOWER(?)", req.body.email)
             .first()
-
+        console.log(user)
         if (user) {
             bcrypt.compare(req.body.password, user.password, (err, isMatch) => {
                 if (err || !isMatch) {
@@ -31,7 +31,7 @@ module.exports = app => {
                 })
             })
         } else {
-            res.status(400).send('Usuário não cadastrado!')
+            res.status(400).send({errorMsg:'Usuario nao cadastrado!'})
         }
     }
 

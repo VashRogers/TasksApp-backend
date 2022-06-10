@@ -1,11 +1,14 @@
+// Update with your config settings.
 
+/**
+ * @type { Object.<string, import("knex").Knex.Config> }
+ */
 module.exports = {
-
   client: 'postgresql',
   connection: {
     database: 'tasks',
     user:     'postgres',
-    password: '@Rigor4452'
+    password: 'postgres'
   },
   pool: {
     min: 2,
@@ -14,5 +17,4 @@ module.exports = {
   migrations: {
     tableName: 'knex_migrations'
   }
-
 };
